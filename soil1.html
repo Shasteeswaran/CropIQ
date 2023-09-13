@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>CropIQ</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+      <!-- style css -->
+      <link href="{{url_for('static',filename='css/style1.css')}}" rel="stylesheet">
+      <!-- Responsive-->
+      <link href="{{url_for('static',filename='css/responsive1.css')}}" rel="stylesheet">
+      <!-- fevicon -->
+      <link href="{{url_for('static',filename='images/fevicon.png')}}" rel="icon" type="image/gif">
+      <!-- Tweaks for older IEs-->
+      <link href="{{url_for('static',filename='css/owl.carousel.min.css')}}" rel="stylesheet">
+      <link href="{{url_for('static',filename='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')}}" rel="stylesheet">
+      <link href="{{url_for('static',filename='css/bootstrap-datepicker.min.css')}}" rel="stylesheet">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page service_page">
+     
+      <div class="full_bg">
+         <!-- header -->
+         <header class="header-area">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class=" col-md-2 col-sm-3">
+                     <div class="logo">
+                        <a href="about.html">Crop<span>IQ</span></a>
+                     </div>
+                  </div>
+                  <div class="col-md-8 col-sm-9">
+                     <div class="navbar-area">
+                        <nav class="site-navbar">
+                           <ul>
+                              <li><a href="http://suba.pythonanywhere.com/">Home</a></li>
+                              <li><a href ="http://shaste.pythonanywhere.com/">Location</a></li>
+                              <li><a class="active" href="../static/html/soil1.html">Soil Prediction</a></li>
+                              <li><a href="http://fireorsmoke.pythonanywhere.com/">Crop Prediction</a></li>
+                              <li><a href="http://suba1.pythonanywhere.com/">Insurance</a></li>
+                              <li><a href="https://shastee.pythonanywhere.com/">Contact</a></li>
+                           </ul>
+                           <button class="nav-toggler">
+                           <span></span>
+                           </button>
+                        </nav>
+                     </div>
+                  </div>
+                 
+               </div>
+            </div>
+         </header>
+         <!-- end header inner -->
+      </div>
+      <!-- services -->
+      <div class="services">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_left">
+                     <span>What We Do</span>
+                         <h2>SERVICES WE OFFER</h2>
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+      </div>
+      <!-- end services -->
+      
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/bootstrap-datepicker.min.js"></script>
+      <script src="js/custom.js"></script>
+
+      <div class="part-drop-down-contanier">
+
+         <form action="/predict" method="POST" enctype="multipart/form-data">
+             <br><br>
+             <label for="imagefile" class="image-content">Upload the respective scan image:</label>
+
+
+         </form><br>
+     </div>
+
+   </div>
+      {% if prediction_value %}
+      <h2 class="h11">Prediction Result:</h2>
+      <p class="p11">The predicted soil: {{ prediction_value }}</p>
+      <p class="p11">Accuracy: {{ prediction_accuracy }}%</p>
+      <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;" class="img11">
+      {% endif %}
+   </div>
+   </body>
+</html>

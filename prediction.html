@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>CropIQ</title>
+      
+      <!-- bootstrap css -->
+      <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+      <!-- style css -->
+      <link href="{{url_for('static',filename='css/style1.css')}}" rel="stylesheet">
+      <!-- Responsive-->
+      <link href="{{url_for('static',filename='css/responsive1.css')}}" rel="stylesheet">
+     
+      <style>
+         .p11{
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            font-weight: bolder;
+         }
+      </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page service_page">
+     
+      <div class="full_bg">
+         <!-- header -->
+         <header class="header-area">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class=" col-md-2 col-sm-3">
+                     <div class="logo">
+                        <a href="http://home07.pythonanywhere.com">Crop<span>IQ</span></a>
+                     </div>
+                  </div>
+                  <div class="col-md-8 col-sm-9">
+                     <div class="navbar-area">
+                        <nav class="site-navbar">
+                           <ul>
+                              <li><a href="http://home07.pythonanywhere.com">Home</a></li>
+                              <li><a href ="http://shaste.pythonanywhere.com/">Location</a></li>
+                              <li><a href="../static/html/soil.html">Soil Prediction</a></li>
+                              <li><a href="http://fireorsmoke.pythonanywhere.com/">Crop Prediction</a></li>
+                              <li><a href="http://suba1.pythonanywhere.com/">Insurance</a></li>
+                              <li><a href="https://shastee.pythonanywhere.com/">Contact</a></li>
+                           </ul>
+                           <button class="nav-toggler">
+                           <span></span>
+                           </button>
+                        </nav>
+                     </div>
+                  </div>
+                 
+               </div>
+            </div>
+         </header>
+         <!-- end header inner -->
+      </div>
+      <!-- services -->
+      <div class="prediction">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_left">
+                     <span>Crop Prediction </span>
+                   <P></P>
+               </div>
+            </div>
+            <form action="predict" method="POST" enctype="multipart/form-data">
+               <div class="row">
+                   <div class="col-md-6">
+                       <label for="name">Nitrogen:</label>
+                       <input type="text" id="name" name="nitrogen">
+                   </div>
+                   <div class="col-md-6">
+                       <label for="email">Potassium:</label>
+                       <input type="text" id="email" name="potassium">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-6">
+                       <label for="email">Phosphorus:</label>
+                       <input type="text" id="email" name="phosphorus">
+                   </div>
+                   <div class="col-md-6">
+                       <label for="email">Temperature:</label>
+                       <input type="text" id="email" name="temperature">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-6">
+                       <label for="email">Humidity:</label>
+                       <input type="text" id="email" name="humidity">
+                   </div>
+                   <div class="col-md-6">
+                       <label for="email">pH:</label>
+                       <input type="text" id="email" name="ph">
+                   </div>
+                   <div class="col-md-6">
+                     <label for="email">Rainfall:</label>
+                     <input type="text" id="email" name="rainfall">
+                 </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="submit" value="Submit">
+                   </div>
+               </div>
+           </form>
+
+         </div>
+         {% if prediction_value %}
+         <p class="p11">The predicted crop: {{ prediction_value }}</p>
+         <!--p class="p11">The predicted crop: {{ link }}</p-->
+         <a href="{{ link }}" target="_blank">Visualize</a>
+         {% endif %}
+           
+         </div>
+      </div>
+      <!-- end services -->
+      
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html

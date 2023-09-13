@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>CropIQ</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+      <!-- style css -->
+      <link href="{{url_for('static',filename='css/style1.css')}}" rel="stylesheet">
+      <!-- Responsive-->
+      <link href="{{url_for('static',filename='css/responsive1.css')}}" rel="stylesheet">
+     
+      <link rel='stylesheet' href='https://bots.kore.ai/webclient/UI/dist/kore-ai-sdk.min.css'>
+      </link>
+      <script
+         src='https://bots.kore.ai/api/platform/websdkjs/08a9bb1cbd20496d8a45c2f06aa66470d6d6776b4d0a439ebde96919f8766143st70'></script>
+      <script>KoreSDK.show(KoreSDK.chatConfig);</script>
+      <style>
+        /* Define the CSS class for the green button */
+        .green-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    
+        /* Style for the button on hover */
+        .green-button:hover {
+            background-color: darkgreen;
+        }
+
+        .about_img {
+         position: absolute;
+         top: 10;
+         right: 200px;
+         width:500px;
+         height:10px;
+      }
+
+      @media (max-width: 767px) {
+         .about_img {
+            position: relative;
+            top: auto;
+            right: auto;
+            max-width: 100%;
+         }}
+    </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page service_page">
+     
+      <div class="full_bg">
+         <!-- header -->
+         <header class="header-area">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class=" col-md-2 col-sm-3">
+                     <div class="logo">
+                        <a href="http://home07.pythonanywhere.com">Crop<span>IQ</span></a>
+                     </div>
+                  </div>
+                  <div class="col-md-8 col-sm-9">
+                     <div class="navbar-area">
+                        <nav class="site-navbar">
+                           <ul>
+                              <li><a href="http://home07.pythonanywhere.com">Home</a></li>
+                              <li><a class="active" href ="http://shaste.pythonanywhere.com/">Location</a></li>
+                              <li><a href="../static/html/soil.html">Soil Prediction</a></li>
+                              <li><a href="http://fireorsmoke.pythonanywhere.com/">Crop Prediction</a></li>
+                              <li><a href="https://suba1.pythonanywhere.com/">Insurance</a></li>
+                              <li><a href="https://shastee.pythonanywhere.com/">Contact</a></li>
+                           </ul>
+                           <button class="nav-toggler">
+                           <span></span>
+                           </button>
+                        </nav>
+                     </div>
+                  </div>
+                 
+               </div>
+            </div>
+         </header>
+         <!-- end header inner -->
+      </div>
+      <!-- services -->
+      <div class="services">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_left">
+                     <span>Get your Location Weather !</span>
+                     <p>From this a user could know there weather by click this button !!!</p>
+
+                  </div>
+                  <!-- Add this button after your existing content -->
+<form action="{{url_for('predict')}}", method="post" enctype="multipart/form-data">
+    <!--input class="btn green-button"  value="Get Location"--> 
+    <label for="datepicker">Select a Date:</label>
+    <input type="date" id="datepicker" name="selected_date"><br>
+
+    <button type="submit" class=" btn green-button" >Get Location</button>
+</form>
+
+<div class="about_img">
+   <figure><img src="../static/images/location.jpg" alt="#"/>
+   </figure>
+</div>
+
+
+
+Temperature :{{temperature}}<br>
+Min Temperature :{{min_temperature}}<br>
+Max Temperature :{{max_temperature}}<br>
+Humidity :{{humidity}}<br>
+Wind :{{wind}}<br>
+Condition :{{condition}}<br>
+
+               </div>
+            </div>
+            
+         </div>
+      </div>
+      <!-- end services -->
+      
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/bootstrap-datepicker.min.js"></script>
+      <script src="js/custom.js"></script>
+   </body>
+</html>
